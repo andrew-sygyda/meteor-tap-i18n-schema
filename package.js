@@ -1,12 +1,8 @@
 Package.describe({
   name: 'ansyg:tap-i18n-schema',
   version: '0.1.1',
-  // Brief, one-line summary of the package.
   summary: 'Simple solution to join tap:i18n-db and aldeed:collection2',
-  // URL to the Git repository containing the source code for this package.
-  git: '',
-  // By default, Meteor will default to using README.md for documentation.
-  // To avoid submitting documentation, set this field to null.
+  git: 'https://github.com/andrew-sygyda/meteor-tap-i18n-schema',
   documentation: 'README.md'
 });
 
