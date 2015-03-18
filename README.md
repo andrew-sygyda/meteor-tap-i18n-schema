@@ -1,7 +1,15 @@
 Simple package to provide connection between tap:i18n-db and aldeed:collection2
 ===
 
-This package add `attachI18nSchema` method to `TAPi18n.Collection`. Simple example:
+### Instalation
+
+In your Meteor app directory, enter:
+
+`meteor add ansyg:tap-i18n-schema`
+
+### Example
+
+This package add `attachI18nSchema` method to `TAPi18n.Collection`.
 
 ```javascript
 var Posts = TAPi18n.Collection('posts', {
@@ -24,4 +32,5 @@ Posts.attachI18nSchema({
   }
 });
 ```
+
 So you can see that now `TAPi18n.Collection` have one additional option it is array of `languages`. Also when you want that your fields will be translated, you need pass `i18n` option to field object.
