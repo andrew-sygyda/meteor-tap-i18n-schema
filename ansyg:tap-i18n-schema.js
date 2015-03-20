@@ -13,35 +13,38 @@ var originAttachSchema = Mongo.Collection.prototype.attachSchema,
       collection._disableTransformationOnRoute(/^\/admin(\/?$|\/)/);
     }
 
-    if (options && options.languages) {
-      collection._languages = options.languages;
-      collection.attachI18nSchema = function (ss, opts) {
-        var i18nSchema = _.extend({}, ss), langs;
-        if (typeof ss !== 'object') {
-          throw new Meteor.Error('schema-error',
-            'Please check your schema pass to attachI18nSchema');
-        }
+    if (options && !options.languages) {
+      options.languages = [ 'en' ];
+    }
 
-        langs = _.filter(collection._languages, function (lang) {
-          return lang !== collection._base_language;
-        });
+    collection._languages = options.languages;
+    collection.attachI18nSchema = function (ss, opts) {
+      var i18nSchema = _.extend({}, ss), langs;
+      if (typeof ss !== 'object') {
+        throw new Meteor.Error('schema-error',
+          'Please check your schema pass to attachI18nSchema');
+      }
 
-        if (!langs.length) {
-          return originAttachSchema.call(this, ss, opts);
-        }
+      langs = _.filter(collection._languages, function (lang) {
+        return lang !== collection._base_language;
+      });
 
-        _.each(i18nSchema, function (field, key) {
-          if (!field['i18n']) return;
-          _.each(langs, function (lang) {
-            i18nSchema['i18n.' + lang + '.' + key] = _.extend({}, field, {
-              optional: true
-            });
+      if (!langs.length) {
+        return originAttachSchema.call(this, ss, opts);
+      }
+
+      _.each(i18nSchema, function (field, key) {
+        if (!field['i18n']) return;
+        _.each(langs, function (lang) {
+          i18nSchema['i18n.' + lang + '.' + key] = _.extend({}, field, {
+            optional: true
           });
         });
+      });
 
-        return originAttachSchema.call(this, i18nSchema, opts);
-      };
-    }
+      return originAttachSchema.call(this, i18nSchema, opts);
+    };
+
     return collection;
   };
 

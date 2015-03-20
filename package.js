@@ -7,16 +7,18 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
+  var both = [ 'client', 'server' ];
   api.versionsFrom('1.0.3.2');
 
   api.use([
     'underscore',
     'check@1.0.0',
+    'tap:i18n@1.4.1',
     'tap:i18n-db@0.4.0',
     'aldeed:collection2@2.3.2'
-  ]);
+  ], both);
 
-  api.addFiles('ansyg:tap-i18n-schema.js');
+  api.addFiles('ansyg:tap-i18n-schema.js', both);
 });
 
 Package.onTest(function (api) {
