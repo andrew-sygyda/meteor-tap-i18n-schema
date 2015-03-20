@@ -1,6 +1,6 @@
 Package.describe({
   name: 'ansyg:tap-i18n-schema',
-  version: '0.1.1',
+  version: '0.1.2',
   summary: 'Simple solution to join tap:i18n-db and aldeed:collection2',
   git: 'https://github.com/andrew-sygyda/meteor-tap-i18n-schema',
   documentation: 'README.md'
