@@ -1,4 +1,4 @@
-Simple package to provide connection between tap:i18n-db and aldeed:collection2
+Simple package to provide connection between tap:i18n-db and aldeed:collection2 [![Build Status](https://travis-ci.org/andrew-sygyda/meteor-tap-i18n-schema.svg?branch=master)](https://travis-ci.org/andrew-sygyda/meteor-tap-i18n-schema)
 ===
 
 ### Instalation
