@@ -14,5 +14,6 @@ install:
 
 # All build / test commands / scripts go here.
 # For testing meteor packages, that's all that is needed.
+sudo: required
 script:
   - "spacejam test-packages ./"
