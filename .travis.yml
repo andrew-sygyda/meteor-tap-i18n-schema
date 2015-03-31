@@ -1,0 +1,9 @@
+# The language specific base vm to use for this repository
+language: node_js
+
+# The node.js version to install
+node_js: "0.10"
+
+# All installation prerequisites before running your build / tests go here. 
+before_install:
+  - "curl -L http://git.io/ejPSng | /bin/sh"

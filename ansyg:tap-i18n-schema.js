@@ -35,7 +35,7 @@ var originAttachSchema = Mongo.Collection.prototype.attachSchema,
 
       _.each(i18nSchema, function (field, key) {
         if (!field['i18n']) return;
-        _.each(langs, function (lang) {
+        _.each(langs, function (lang, index) {
           i18nSchema['i18n.' + lang + '.' + key] = _.extend({}, field, {
             optional: true
           });
