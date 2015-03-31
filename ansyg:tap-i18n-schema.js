@@ -20,10 +20,10 @@ var originAttachSchema = Mongo.Collection.prototype.attachSchema,
     collection._languages = options.languages;
     collection.attachI18nSchema = function (ss, opts) {
       var i18nSchema = _.extend({}, ss), langs;
-      if (typeof ss !== 'object') {
-        throw new Meteor.Error('schema-error',
-          'Please check your schema pass to attachI18nSchema');
-      }
+      // if (typeof ss !== 'object') {
+        // throw new Meteor.Error('schema-error',
+          // 'Please check your schema pass to attachI18nSchema');
+      // }
 
       langs = _.filter(collection._languages, function (lang) {
         return lang !== collection._base_language;
