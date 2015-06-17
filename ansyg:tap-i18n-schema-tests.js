@@ -35,7 +35,7 @@ Tinytest.add('it should add attachI18nSchema to TAPi18n.Collection', function (t
   test.isNotUndefined(Posts.attachI18nSchema);
   Posts.attachI18nSchema(schema);
   test.notEqual(Posts.simpleSchema()._schema, schema);
-  test.equal(JSON.toString(Posts.simpleSchema()._schema), JSON.toString(_.extend({}, schema, {
+  test.equal(JSON.stringify(Posts.simpleSchema()._schema), JSON.stringify(_.extend({}, schema, {
     'i18n.en.name': {
       label: 'Name',
       type: String,
